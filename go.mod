@@ -1,4 +1,4 @@
-module example.com/hello
+module paulboocock.net/anagram
 
 go 1.16
 
