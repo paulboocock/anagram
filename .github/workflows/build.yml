@@ -1,0 +1,47 @@
+name: Build
+
+on: [ push ]
+
+jobs:
+  test:
+    name: Compile & Test
+    strategy:
+      matrix:
+        go-version: [1.16.7, 1.17]
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: ${{ matrix.go-version }}
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Cache go modules
+      uses: actions/cache@v2
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-go-
+
+    - name: Lint
+      run: make lint
+
+    - name: Build
+      run: make cli
+
+    - name: Test
+      run: make test
+
+    - name: Build container
+      run: make container
+
+    - name: Upload assets
+      uses: actions/upload-artifact@v2
+      with:
+        name: anagram.zip
+        path: ./build/output/*
