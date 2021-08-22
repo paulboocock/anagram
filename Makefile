@@ -10,6 +10,7 @@ go_dirs = `go list ./...`
 
 build_dir  = build
 output_dir = $(build_dir)/output
+release_dir = $(build_dir)/release
 
 coverage_dir  = $(build_dir)/coverage
 coverage_out  = $(coverage_dir)/coverage.out
@@ -27,6 +28,14 @@ gox:
 
 cli: gox
 	gox -osarch="linux/amd64 linux/arm64 darwin/amd64 darwin/arm64 windows/amd64" -output=$(output_dir)/anagram_{{.OS}}_{{.Arch}} ./cmd/cli/
+
+release: cli
+	mkdir -p $(release_dir)
+	zip $(release_dir)/anagram_linux_amd64.zip $(output_dir)/anagram_linux_amd64
+	zip $(release_dir)/anagram_linux_arm64.zip $(output_dir)/anagram_linux_arm64
+	zip $(release_dir)/anagram_darwin_amd64.zip $(output_dir)/anagram_darwin_amd64
+	zip $(release_dir)/anagram_darwin_arm64.zip $(output_dir)/anagram_darwin_arm64
+	zip $(release_dir)/anagram_windows_amd64.zip $(output_dir)/anagram_windows_amd64.exe
 
 container: cli
 	docker build -t $(container_name):$(version) .
