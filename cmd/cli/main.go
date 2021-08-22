@@ -16,7 +16,7 @@ func main() {
 	app := &cli.App{
 		Name:      "Anagram",
 		Usage:     "Finds anagrams from a word list - ./anagram /path/to/file.txt",
-		Version:   "0.1.0-rc2",
+		Version:   "0.1.0",
 		Copyright: "(c) 2021 Paul Boocock",
 		Compiled:  time.Now(),
 		Authors: []cli.Author{
