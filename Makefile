@@ -31,11 +31,11 @@ cli: gox
 
 release: cli
 	mkdir -p $(release_dir)
-	zip $(release_dir)/anagram_linux_amd64.zip $(output_dir)/anagram_linux_amd64
-	zip $(release_dir)/anagram_linux_arm64.zip $(output_dir)/anagram_linux_arm64
-	zip $(release_dir)/anagram_darwin_amd64.zip $(output_dir)/anagram_darwin_amd64
-	zip $(release_dir)/anagram_darwin_arm64.zip $(output_dir)/anagram_darwin_arm64
-	zip $(release_dir)/anagram_windows_amd64.zip $(output_dir)/anagram_windows_amd64.exe
+	(cd $(output_dir) && zip ../../$(release_dir)/anagram_linux_amd64.zip anagram_linux_amd64)
+	(cd $(output_dir) && zip ../../$(release_dir)/anagram_linux_arm64.zip anagram_linux_arm64)
+	(cd $(output_dir) && zip ../../$(release_dir)/anagram_darwin_amd64.zip anagram_darwin_amd64)
+	(cd $(output_dir) && zip ../../$(release_dir)/anagram_darwin_arm64.zip anagram_darwin_arm64)
+	(cd $(output_dir) && zip ../../$(release_dir)/anagram_windows_amd64.zip anagram_windows_amd64.exe)
 
 container: cli
 	docker build -t $(container_name):$(version) .
