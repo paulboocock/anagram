@@ -19,7 +19,9 @@ func FindAnagrams(values []string) ([][]string, error) {
 
 	result := [][]string{}
 	for _, value := range anagrams {
-		result = append(result, value)
+		if len(value) > 1 {
+			result = append(result, value)
+		}
 	}
 
 	return result, nil

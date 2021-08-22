@@ -8,6 +8,7 @@ import (
 
 	"github.com/paulboocock/anagram/pkg/anagram"
 	"github.com/paulboocock/anagram/pkg/reader"
+	"github.com/paulboocock/anagram/pkg/writer"
 	"github.com/urfave/cli"
 )
 
@@ -50,8 +51,11 @@ func main() {
 				}
 
 				if len(anagrams) > 0 {
+					fmt.Println("----------------------------")
 					fmt.Printf("Anagrams with %d characters:\n", len(anagrams[0][0]))
-					fmt.Printf("%s\n\n", anagrams)
+					for _, anagram := range anagrams {
+						writer.NewStringArrayFmtWriter(anagram).Write()
+					}
 				}
 			}
 
