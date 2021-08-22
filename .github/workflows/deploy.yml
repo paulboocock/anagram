@@ -1,4 +1,4 @@
-name: Build
+name: Deploy
 
 on:
   push:
@@ -13,10 +13,10 @@ env:
 
 jobs:
   release:
-    name: Compile & Test
+    name: Release
     strategy:
       matrix:
-        go-version: [1.16.7, 1.17]
+        go-version: [1.16.7]
 
     runs-on: ubuntu-20.04
 
