@@ -5,17 +5,20 @@ import (
 	"strings"
 )
 
-type StringArrayFmtWriter struct {
+// StringSliceFmtWriter writes a string slice with fmt
+type StringSliceFmtWriter struct {
 	Strings []string
 }
 
-func NewStringArrayFmtWriter(strings []string) Writer {
-	return &StringArrayFmtWriter{
+// NewStringSliceFmtWriter writes a string slice with fmt
+func NewStringSliceFmtWriter(strings []string) Writer {
+	return &StringSliceFmtWriter{
 		Strings: strings,
 	}
 }
 
-func (writer *StringArrayFmtWriter) Write() error {
+// Write a string slice with fmt, separated by commas
+func (writer *StringSliceFmtWriter) Write() error {
 	fmt.Println(strings.Join(writer.Strings, ","))
 	return nil
 }

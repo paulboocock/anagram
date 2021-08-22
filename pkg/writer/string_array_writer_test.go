@@ -6,7 +6,7 @@ import (
 
 func TestWriterDoesNotError(t *testing.T) {
 	input := []string{"abc", "bac", "cba"}
-	writer := NewStringArrayFmtWriter(input)
+	writer := NewStringSliceFmtWriter(input)
 
 	if err := writer.Write(); err != nil {
 		t.Error(err)

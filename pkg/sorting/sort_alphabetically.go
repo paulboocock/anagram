@@ -1,5 +1,6 @@
 package sorting
 
+// SortAlphabetically sorts a slice of runes alphabetically
 type SortAlphabetically []rune
 
 func (a SortAlphabetically) Len() int           { return len(a) }

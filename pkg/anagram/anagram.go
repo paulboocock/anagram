@@ -6,6 +6,8 @@ import (
 	"github.com/paulboocock/anagram/pkg/sorting"
 )
 
+// FindAnagrams when given a slice of strings, this will return a slice where
+// each element contains a slice with words which are anagrams
 func FindAnagrams(values []string) ([][]string, error) {
 	anagrams := map[string][]string{}
 
