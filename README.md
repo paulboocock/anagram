@@ -78,8 +78,8 @@ To lint all files
 make lint
 ```
 
-[linux_amd64]: https://github.com/paulboocock/anagram/releases/download/0.1.1/anagram_linux_amd64.zip
-[linux_arm64]: https://github.com/paulboocock/anagram/releases/download/0.1.1/anagram_linux_arm64.zip
-[darwin_amd64]: https://github.com/paulboocock/anagram/releases/download/0.1.1/anagram_darwin_amd64.zip
-[darwin_arm64]: https://github.com/paulboocock/anagram/releases/download/0.1.1/anagram_darwin_arm64.zip
-[windows_amd64]: https://github.com/paulboocock/anagram/releases/download/0.1.1/anagram_windows_amd64.zip
+[linux_amd64]: https://github.com/paulboocock/anagram/releases/download/1.0.0/anagram_linux_amd64.zip
+[linux_arm64]: https://github.com/paulboocock/anagram/releases/download/1.0.0/anagram_linux_arm64.zip
+[darwin_amd64]: https://github.com/paulboocock/anagram/releases/download/1.0.0/anagram_darwin_amd64.zip
+[darwin_arm64]: https://github.com/paulboocock/anagram/releases/download/1.0.0/anagram_darwin_arm64.zip
+[windows_amd64]: https://github.com/paulboocock/anagram/releases/download/1.0.0/anagram_windows_amd64.zip
