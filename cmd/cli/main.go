@@ -54,7 +54,7 @@ func main() {
 					fmt.Println("----------------------------")
 					fmt.Printf("Anagrams with %d characters:\n", len(anagrams[0][0]))
 					for _, anagram := range anagrams {
-						writer.NewStringArrayFmtWriter(anagram).Write()
+						writer.NewStringSliceFmtWriter(anagram).Write()
 					}
 				}
 			}

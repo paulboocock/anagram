@@ -5,10 +5,12 @@ import (
 	"os"
 )
 
+// StringBatchByLengthReaderConfig object for creating a StringBatchByLengthReader
 type StringBatchByLengthReaderConfig struct {
 	Filepath string
 }
 
+// StringBatchByLengthReader reads strings from a file of sorted strings until the string length changes
 type StringBatchByLengthReader struct {
 	CurrentLength int
 
@@ -17,6 +19,8 @@ type StringBatchByLengthReader struct {
 	Scanner *bufio.Scanner
 }
 
+// NewStringBatchByLengthReader creates a new StringBatchByLengthReader
+// Reads strings from a file of sorted strings until the string length changes
 func NewStringBatchByLengthReader(filepath string) Reader {
 	return &StringBatchByLengthReader{
 		Config: &StringBatchByLengthReaderConfig{
@@ -25,6 +29,7 @@ func NewStringBatchByLengthReader(filepath string) Reader {
 	}
 }
 
+// Open the file for reading
 func (reader *StringBatchByLengthReader) Open() error {
 	file, err := os.Open(reader.Config.Filepath)
 	if err != nil {
@@ -43,6 +48,7 @@ func (reader *StringBatchByLengthReader) Open() error {
 	return nil
 }
 
+// Read the strings from the file until the length of the strings change
 func (reader *StringBatchByLengthReader) Read() ([]string, error) {
 	var result []string
 
@@ -66,6 +72,7 @@ func (reader *StringBatchByLengthReader) Read() ([]string, error) {
 	return result, nil
 }
 
+// Close the open file
 func (reader *StringBatchByLengthReader) Close() error {
 	return reader.File.Close()
 }
